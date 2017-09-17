@@ -1,8 +1,8 @@
 {
   "name": "jct2",
-  "version": "0.0.0",
+  "version": "2.0.0",
   "description": "jchoi's call tracker v2",
-  "main": "public/index.html",
+  "main": "server.js",
   "author": "Johnathan Choi",
   "dependencies": {
     "body-parser": "~1.18.0",
