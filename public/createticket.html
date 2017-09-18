@@ -1,0 +1,68 @@
+<!-- 
+    Johnathan Choi 2017
+    index.html
+    Create ticket here
+-->
+<html>
+    <head>
+        <title>Create Ticket</title>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+        <!--Import main.css-->
+        <link type="text/css" rel="stylesheet" href="css/main.css"  media="screen,projection"/>
+        <!--Mobile width scaling-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <!-- Logo -->
+        <div class="logo"><a href="index.html">JCHOI's Call Tracker</a></div>
+        <p><a href="createticket.html">Create Ticket</a></p>
+
+        <div class="pagetitle">Create Ticket</div>
+
+        <form class="container-fluid">
+            <div class="form-group row">
+                <div class="col-9">
+                    <label>Subject</label>
+                    <input type="text" class="form-control" id="subject" aria-describedby="subjectHelp" placeholder="What's the problem?">
+                    <small id="subjectHelp" class="form-text text-muted">Keep the subject brief but <u>helpful</u>.</small>
+                </div>
+                <div class="col-3">
+                    <label>Time</label>
+                    <input type="text" class="form-control" id="time">
+                </div>
+            </div>
+            <div class="row">
+                <span class="col-sm">
+                    <label>Customer Information</label>
+                    <button type="button">Lookup</button>
+                </span>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <p>
+                        Customer information goes here<br>
+                        Customer information goes here<br>
+                        Customer information goes here<br>
+                        Customer information goes here
+                    </p>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-12">
+                    <label>Issue Details</label>
+                    <textarea class="form-control" id="body"></textarea>
+                </div>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="checkbox" class="form-check-input">
+                Check me out
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        
+    </body>
+</html>
