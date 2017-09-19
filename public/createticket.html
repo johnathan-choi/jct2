@@ -3,7 +3,7 @@
     index.html
     Create ticket here
 -->
-<html>
+<html ng-app="jct">
     <head>
         <title>Create Ticket</title>
         <meta charset="utf-8">
@@ -17,14 +17,14 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script src="core.js"></script>
     </head>
-    <body  ng-app="jct2" ng-controller="mainController">
+    <body ng-controller="mainController">
         <!-- Logo -->
         <div class="logo"><a href="index.html">JCHOI's Call Tracker</a></div>
         <p><a href="createticket.html">Create Ticket</a></p>
         <div class="body">
         <div class="pagetitle">Create Ticket</div>
 
-        <form class="container-fluid" ng-submit="createTicket()">
+        <form class="container-fluid" ng-submit="createTicket()" action="index.html">
             <div class="form-group row">
                 <div class="col-9">
                     <label>Subject</label>
