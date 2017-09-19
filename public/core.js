@@ -1,7 +1,9 @@
 // public/core.js
 
-var jct2 = angular.module('jct2', []);
-
-function mainController($scope, $http) {
-
-}
+var app = angular.module('jct2', []);  
+app.controller('mainController', function($scope){
+    $scope.createTicket = function(){
+        alert(1);
+        $scope.formBody = "test";
+    }
+});

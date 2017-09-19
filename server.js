@@ -70,18 +70,19 @@ customersSchema.plugin(autoIncrement.plugin, {
 var Ticket = mongoose.model('Ticket', ticketSchema);
 var Customer = mongoose.model('Customer', customersSchema);
 
-var ticketCreate = Ticket.create({
-    subject: 'internet help',
-    body: [{
-        body: 'cannot connect',
-        updatedBy: 0
-    }],
-    openDate: Date.now(),
-    status: 'Open',
-    custID: 0
-}, function(err, ticket) {
-    console.log(err);
-});
+// Makes a sample ticket
+// var ticketCreate = Ticket.create({
+//     subject: 'internet help',
+//     body: [{
+//         body: 'cannot connect',
+//         updatedBy: 0
+//     }],
+//     openDate: Date.now(),
+//     status: 'Open',
+//     custID: 0
+// }, function(err, ticket) {
+//     console.log(err);
+// });
 
 // listen (start app with node server.js) ======================================
 app.listen(8080);

@@ -6,6 +6,7 @@
 <html>
     <head>
         <title>Create Ticket</title>
+        <meta charset="utf-8">
         <!--Import Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
@@ -13,24 +14,26 @@
         <link type="text/css" rel="stylesheet" href="css/main.css"  media="screen,projection"/>
         <!--Mobile width scaling-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="core.js"></script>
     </head>
-    <body>
+    <body  ng-app="jct2" ng-controller="mainController">
         <!-- Logo -->
         <div class="logo"><a href="index.html">JCHOI's Call Tracker</a></div>
         <p><a href="createticket.html">Create Ticket</a></p>
         <div class="body">
         <div class="pagetitle">Create Ticket</div>
 
-        <form class="container-fluid">
+        <form class="container-fluid" ng-submit="createTicket()">
             <div class="form-group row">
                 <div class="col-9">
                     <label>Subject</label>
-                    <input type="text" class="form-control" id="subject" aria-describedby="subjectHelp" placeholder="What's the problem?">
+                    <input type="text" class="form-control" ng-model="formSubject" aria-describedby="subjectHelp" placeholder="What's the problem?">
                     <small id="subjectHelp" class="form-text text-muted">Keep the subject brief but <u>helpful</u>.</small>
                 </div>
                 <div class="col-3">
                     <label>Time</label>
-                    <input type="text" class="form-control" id="time">
+                    <input type="text" class="form-control" ng-model="formTime">
                 </div>
             </div>
             <div class="row">
@@ -52,10 +55,10 @@
             <div class="form-group row">
                 <div class="col-12">
                     <label>Issue Details</label>
-                    <textarea class="form-control" id="body"></textarea>
+                    <textarea class="form-control" ng-model="formBody"></textarea>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <input type="submit" class="btn btn-primary">
         </form>
         </div>
     </body>
