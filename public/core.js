@@ -21,13 +21,27 @@ var minutes = date.getMinutes();
 var currTime = date.getFullYear() + "/" + month + "/" + day + " " + hours + ":" + minutes; 
 
 
-var app = angular.module('jct', []);  
+var app = angular.module('jct', []);
+
+app.controller('indexPage', function($scope, $http){
+    $scope.currTime = currTime;
+
+    $http.get('/api/tickets')
+        .then(function(response){
+            $scope.allTickets = response.data;
+        });
+});
+
 app.controller('createTicketPage', function($scope, $http){
     $scope.formData = {
         time: currTime,
     };
     $scope.createTicket = function(){
         $http.post('/api/tickets', $scope.formData)
-            .then(alert("POST success"), alert("POST failure"));
+            .then(function(response){
+                console.log("POST success"); //success. doesn't work yet
+            }, function(response) {
+                console.log("POST fail"); //failure. doens't work yet
+            });
     };
 });

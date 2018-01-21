@@ -71,6 +71,20 @@ customersSchema.plugin(autoIncrement.plugin, {
 var Ticket = mongoose.model('Ticket', ticketSchema);
 var Customer = mongoose.model('Customer', customersSchema);
 
+// get tickets
+app.get('/api/tickets', function(req, res) {
+    // use mongoose to get all tickets in the database
+    Ticket.find(function(err, tickets) {
+        // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+        if (err)
+            res.send(err)
+        res.json(tickets); // return all tickets in JSON format
+    });
+});
+// app.get('*', function(req, res){
+//     res.sendFile(__dirname + '/public/index.html');
+// });
+
 // create ticket
 app.post('/api/tickets', function(req, res) {
 
