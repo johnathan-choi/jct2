@@ -84,6 +84,21 @@ var Customer = mongoose.model('Customer', customersSchema);
 //     console.log(err);
 // });
 
+// create ticket
+app.post('/api/tickets', function(req, res) {
+
+    // create a ticket
+    Ticket.create({
+        subject : req.body.text,
+        body : req.body.text,
+        done : false
+    }, function(err, ticket) {
+        if (err)
+            res.send(err);
+    });
+
+});
+
 // listen (start app with node server.js) ======================================
 app.listen(8080);
 console.log("App listening on port 8080");

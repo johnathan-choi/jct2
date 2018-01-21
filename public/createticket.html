@@ -17,7 +17,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script src="core.js"></script>
     </head>
-    <body ng-controller="mainController">
+    <body ng-controller="createTicketPage">
         <!-- Logo -->
         <div class="logo"><a href="index.html">JCHOI's Call Tracker</a></div>
         <p><a href="createticket.html">Create Ticket</a></p>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-3">
                     <label>Time</label>
-                    <input type="text" class="form-control" ng-model="formTime">
+                    <input type="text" class="form-control" ng-model="formTime" readonly>
                 </div>
             </div>
             <div class="row">
