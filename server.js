@@ -8,6 +8,7 @@ var autoIncrement = require("mongoose-auto-increment"); // MAI for mongoose
 var morgan = require('morgan');             // log requests to the console (express4)
 var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
 var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
+var date = new Date();
 
 app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
 app.use(morgan('dev'));                                         // log every request to the console
@@ -39,7 +40,7 @@ var ticketSchema = new mongoose.Schema({
     lastUpdate  : { type: Date, default: Date.now },
     openDate    : Date,
     status      : String,
-    custID      : Number,
+    custID      : Number
 });
 var customersSchema = new mongoose.Schema({
     custID      : Number,           //unique, a-i
@@ -51,8 +52,8 @@ var customersSchema = new mongoose.Schema({
     addrLine2   : String,
     city        : String,
     postalCode  : String,
-    country     : String,
-})
+    country     : String
+});
 
 // applying auto increment to models
 ticketSchema.plugin(autoIncrement.plugin, {
@@ -70,33 +71,20 @@ customersSchema.plugin(autoIncrement.plugin, {
 var Ticket = mongoose.model('Ticket', ticketSchema);
 var Customer = mongoose.model('Customer', customersSchema);
 
-// Makes a sample ticket
-// var ticketCreate = Ticket.create({
-//     subject: 'internet help',
-//     body: [{
-//         body: 'cannot connect',
-//         updatedBy: 0
-//     }],
-//     openDate: Date.now(),
-//     status: 'Open',
-//     custID: 0
-// }, function(err, ticket) {
-//     console.log(err);
-// });
-
 // create ticket
 app.post('/api/tickets', function(req, res) {
 
     // create a ticket
     Ticket.create({
-        subject : req.body.text,
-        body : req.body.text,
-        done : false
-    }, function(err, ticket) {
-        if (err)
-            res.send(err);
-    });
+        subject     : req.body.subject,
+        body        : [{               
+            body       : req.body.body,
+            date       : req.body.time
+            }],
+        lastUpdate  : req.body.time,
+        openDate    : req.body.time
 
+    });
 });
 
 // listen (start app with node server.js) ======================================

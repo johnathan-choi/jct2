@@ -1,36 +1,33 @@
 // public/core.js
 
 //YYYY/MM/DD HH:MM
-var Date = new Date();
-var month = Date.getMonth()+1;
+var date = new Date();
+var month = date.getMonth()+1;
     if (month - 10 < 0){
         month = "0" + month;
     }
-var day = Date.getDate();
+var day = date.getDate();
     if (day - 10 < 0){
         day = "0" + day;
     }
-var hours = Date.getHours();
+var hours = date.getHours();
     if (hours - 10 < 0){
         hours = "0" + hours;
     }
-var minutes = Date.getMinutes();
+var minutes = date.getMinutes();
     if (minutes - 10 < 0){
         minutes = "0" + minutes;
     }
-var currTime = Date.getFullYear() + "/" + month + "/" + day + " " + hours + ":" + minutes; 
+var currTime = date.getFullYear() + "/" + month + "/" + day + " " + hours + ":" + minutes; 
 
 
 var app = angular.module('jct', []);  
 app.controller('createTicketPage', function($scope, $http){
+    $scope.formData = {
+        time: currTime,
+    };
     $scope.createTicket = function(){
-        var submitData = [
-            $scope.formSubject,
-            $scope.formTime,
-            $scope.formBody
-        ];
-        $http.post('/api/tickets', submitData)
+        $http.post('/api/tickets', $scope.formData)
             .then(alert("POST success"), alert("POST failure"));
     };
-    $scope.formTime = currTime;
 });

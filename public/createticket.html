@@ -28,12 +28,12 @@
             <div class="form-group row">
                 <div class="col-9">
                     <label>Subject</label>
-                    <input type="text" class="form-control" ng-model="formSubject" aria-describedby="subjectHelp" placeholder="What's the problem?">
+                    <input type="text" class="form-control" ng-model="formData.subject" aria-describedby="subjectHelp" placeholder="What's the problem?">
                     <small id="subjectHelp" class="form-text text-muted">Keep the subject brief but <u>helpful</u>.</small>
                 </div>
                 <div class="col-3">
                     <label>Time</label>
-                    <input type="text" class="form-control" ng-model="formTime" readonly>
+                    <input type="text" class="form-control" ng-model="formData.time" disabled>
                 </div>
             </div>
             <div class="row">
@@ -55,7 +55,7 @@
             <div class="form-group row">
                 <div class="col-12">
                     <label>Issue Details</label>
-                    <textarea class="form-control" ng-model="formBody"></textarea>
+                    <textarea class="form-control" ng-model="formData.body"></textarea>
                 </div>
             </div>
             <input type="submit" class="btn btn-primary">
