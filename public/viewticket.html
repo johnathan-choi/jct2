@@ -1,8 +1,3 @@
-<!-- 
-    Johnathan Choi 2017
-    index.html
-    Landing page for jct2
--->
 <html ng-app="jct">
     <head>
         <title>Call Tracker</title>
@@ -17,32 +12,34 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script src="core.js"></script>
     </head>
-    <body ng-controller="indexPage">
+    <body ng-controller="viewTicketPage">
         <!-- Logo -->
         <div class="logo"><a href="index.html">JCHOI's Call Tracker</a></div>
         <p><a href="createticket.html">Create Ticket</a></p>
 
-        <!-- remove this once complete -->
-        <p><a href="viewticket.html">View Ticket</a></p> 
-
         <div class="body">
-            <p>Welcome. Current time is: {{currTime}}</p>    
-            
-            <p>Current tickets</p>
-            <table border="1">
-                <tr>
-                    <th>#</th>
-                    <th>Subject</th>
-                    <th>Open Date</th>
-                </tr>
-                <tr ng-repeat="tickets in allTickets">
-                    <td>{{tickets.ticID}}</td>
-                    <td>{{tickets.subject}}</td>
-                    <td>{{tickets.openDate}}</td>
-                </tr>
-            </table>
+        <div class="pagetitle">Ticket {{ticID}}</div>
+        
+        <div class="form-group row">
+            <div class="col-6">
+                <p>
+                    Customer information goes here<br>
+                    Customer information goes here<br>
+                    Customer information goes here<br>
+                    Customer information goes here
+                </p>
+            </div>
+            <div class="col-6">
+                <p>
+                    Opening date: {{openDate}}<br>
+                    Last Update: {{lastUpdate}}<br>
+                    Managing Staff: {{staffName}}<br>
+                    Status: {{ticketStatus}}
+                </p>
+            </div>
+        </div>
+
 
         </div>
-        
     </body>
 </html>
