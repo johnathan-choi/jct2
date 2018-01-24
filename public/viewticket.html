@@ -18,7 +18,7 @@
         <p><a href="createticket.html">Create Ticket</a></p>
 
         <div class="body">
-        <div class="pagetitle">Ticket {{ticID}}</div>
+        <div class="pagetitle">Ticket {{ticID}}: {{subject}}</div>
         
         <div class="form-group row">
             <div class="col-6">
@@ -33,9 +33,15 @@
                 <p>
                     Opening date: {{openDate}}<br>
                     Last Update: {{lastUpdate}}<br>
-                    Managing Staff: {{staffName}}<br>
                     Status: {{ticketStatus}}
                 </p>
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <div class="col-12">
+                <label>Entries</label>
+                <textarea class="form-control"></textarea>
             </div>
         </div>
 

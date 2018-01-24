@@ -36,8 +36,11 @@ app.controller('indexPage', function($scope, $http){
     $scope.currTime = getDateTime(new Date());
 
     $http.get('/api/tickets')
-        .then(function(response){
-            $scope.allTickets = response.data;
+        .then(function(response){ //success
+            angular.forEach(response.data, function(value, key){ //iterates each item in GET JSON
+                value.openDate = getDateTime(new Date(value.openDate), "date"); //makes date legible
+            });
+            $scope.allTickets = response.data; //binds to html
         });
 });
 
@@ -48,9 +51,11 @@ app.controller('createTicketPage', function($scope, $http){
     $scope.createTicket = function(){
         $http.post('/api/tickets', $scope.formData)
             .then(function(response){
-                alert("Ticket created"); //success.
+                alert("Ticket created"); //success
             }, function(response) {
                 alert("Something went wrong. I don't know what."); //failure.
+            }).finally(function(){                
+                window.location.replace("index.html"); //go back to homepage
             });
     };
 });
