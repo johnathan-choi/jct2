@@ -75,12 +75,24 @@ customersSchema.plugin(autoIncrement.plugin, {
 var Ticket = mongoose.model('Ticket', ticketSchema);
 var Customer = mongoose.model('Customer', customersSchema);
 
-// get tickets
+// get all tickets
 app.get('/api/tickets', function(req, res) {
     Ticket.find(function(err, tickets) {
-        if (err)
-            res.send(err)
-        res.json(tickets); // return all tickets in JSON format
+        if (err){
+            res.send(err);
+        }
+        else res.json(tickets); // return all tickets in JSON format
+    });
+});
+
+//get a single ticket
+app.get('/api/viewticket', function(req, res){
+    console.log(req.query.ticID);
+    Ticket.find( {ticID:req.query.ticID}, function(err, result){
+        if (err){
+            res.send(err);
+        }
+        else res.json(result);
     });
 });
 

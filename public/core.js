@@ -32,6 +32,7 @@ function getDateTime(date, mode){ //turns dates legible
 
 var app = angular.module('jct', []);
 
+
 app.controller('indexPage', function($scope, $http){
     $scope.currTime = getDateTime(new Date());
 
@@ -58,4 +59,12 @@ app.controller('createTicketPage', function($scope, $http){
                 window.location.replace("index.html"); //go back to homepage
             });
     };
+});
+
+app.controller('viewTicketPage', function($scope, $http, $location){
+
+    $http.get('/api/viewticket', {params:{ticID:1}})
+        .then(function(response){
+            $scope.subject = $location.search();
+        });
 });

@@ -22,8 +22,8 @@
         <div class="logo"><a href="index.html">JCHOI's Call Tracker</a></div>
         <p><a href="createticket.html">Create Ticket</a></p>
 
-        <!-- remove this once complete -->
-        <p><a href="viewticket.html">View Ticket</a></p> 
+        <!-- remove this once complete
+        <p><a href="viewticket.html">View Ticket</a></p>  -->
 
         <div class="body">
             <p>Welcome. Current time is: {{currTime}}</p>    
@@ -37,7 +37,7 @@
                 </tr>
                 <tr ng-repeat="tickets in allTickets">
                     <td>{{tickets.ticID}}</td>
-                    <td>{{tickets.subject}}</td>
+                    <td><a href="/viewticket.html?ticID={{tickets.ticID}}">{{tickets.subject}}</a></td>
                     <td>{{tickets.openDate}}</td>
                 </tr>
             </table>
