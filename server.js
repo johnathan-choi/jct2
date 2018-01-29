@@ -87,7 +87,6 @@ app.get('/api/tickets', function(req, res) {
 
 //get a single ticket
 app.get('/api/viewticket', function(req, res){
-    console.log(req.query.ticID);
     Ticket.find( {ticID:req.query.ticID}, function(err, result){
         if (err){
             res.send(err);

@@ -61,10 +61,16 @@ app.controller('createTicketPage', function($scope, $http){
     };
 });
 
-app.controller('viewTicketPage', function($scope, $http, $location){
+app.controller('viewTicketPage', function($scope, $http){
 
-    $http.get('/api/viewticket', {params:{ticID:1}})
+    $http.get('/api/viewticket', {params:{ticID:window.location.search.substring(7)}})
         .then(function(response){
-            $scope.subject = $location.search();
+            angular.forEach(response.data, function(value, key){ //iterates each item in GET JSON
+                value.openDate = getDateTime(new Date(value.openDate)); //makes date legible
+                value.lastUpdate = getDateTime(new Date(value.lastUpdate));
+                value.body[0].date = getDateTime(new Date(value.body[0].date));
+            });
+            $scope.singleTicket = response.data;
+
         });
 });
